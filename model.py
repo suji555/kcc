@@ -56,8 +56,8 @@ class kcBERT_custom(nn.Module):
 
             # Mixup label processing
             if src_label.shape[-1]==2:
-                mix_lam = torch.tensor(np.random.beta(1, 1, size=(batch_size,1,1))).to(self.device)
-                processed_label = mix_lam.mul(processed_label_1) + (1-mix_lam).mul(processed_label_2)   # torch.Size([batch_size, batch_size, num_labels])
+                mix_lam = torch.tensor(np.random.beta(1, size=(batch_size,1,1))).to(self.device)
+                processed_label = mix_lam.mul(processed_label_1) + (1-mix_lam).mul(processed_label_2)   # torch.Size([batch_size, num_labels])
                 # Attention mask setting
                 mask1, mask2 = torch.chunk(attention_mask, 2, dim=1)    # torch.Size([batch_size, max_length])
                 attention_mask = torch.tensor([]).to(self.device)
