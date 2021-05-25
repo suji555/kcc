@@ -31,7 +31,6 @@ DEVICE = torch.device(args.device)
 train_loader = make_dataloader(args).dataloader(args.train_data_path)
 train_mix_loader = make_dataloader(args).dataloader(args.train_data_path, mix='low', DEVICE=DEVICE)
 valid_loader = make_dataloader(args).dataloader(args.val_data_path)
-test_loader = make_dataloader(args).dataloader(args.test_data_path, no_label=True)
 
 model = kcBERT_custom(num_labels = 3, DEVICE=DEVICE)
 model = model.to(DEVICE)
