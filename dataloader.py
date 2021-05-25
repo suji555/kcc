@@ -9,7 +9,7 @@ from soynlp.normalizer import repeat_normalize
 
 import torch
 from torch.utils.data import DataLoader, TensorDataset
-from score import BERTScore
+from KoBERTScore import BERTScore
 from transformers import BertTokenizer
 
 
