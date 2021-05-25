@@ -15,7 +15,6 @@ from transformers import BertTokenizer
 
 class make_dataloader:
     def __init__(self, options):
-        super().__init__()
         self.args = options
         self.tokenizer = BertTokenizer.from_pretrained('beomi/kcbert-base')
 
